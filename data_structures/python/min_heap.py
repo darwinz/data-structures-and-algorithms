@@ -2,7 +2,7 @@ class MinHeap:
     def __init__(self, capacity):
         self.capacity = capacity
         self.size = 0
-        items = [None] * self.capacity
+        self.items = [None] * self.capacity
 
     def parent_index(self, child_index):
         return child_index//2
@@ -20,7 +20,7 @@ class MinHeap:
         return self.right_child_index(index) < self.size
 
     def has_parent(self, index):
-        self.parent_index(index) >= 0
+        return self.parent_index(index) >= 0
 
     def left_child(self, index):
         return self.items[self.left_child_index(index)]
@@ -36,3 +36,27 @@ class MinHeap:
         self.items[index_one] = self.items[index_two]
         self.items[index_two] = temp
 
+    def peek(self):
+        if self.size == 0:
+            raise ValueError
+        return self.items[0]
+
+    def poll(self):
+        if self.size == 0:
+            raise ValueError
+        item = self.items[0]
+        self.items[0] = self.items[self.size - 1]
+        self.size -= 1
+        self.heapify_down()
+        return item
+
+    def add(self, item):
+        self.items[self.size] = item
+        self.size += 1
+        self.heapify_up()
+
+    def heapify_up(self):
+        index = self.size - 1
+        while self.has_parent(index) and self.parent(index) > self.items[index]:
+            self.swap(self.parent_index(index), index)
+            index = self.parent_index(index)

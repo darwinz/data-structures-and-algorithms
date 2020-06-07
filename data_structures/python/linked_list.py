@@ -64,8 +64,6 @@ class LinkedList:
                 return
             current = current.next
 
-
-
     def delete_with_value(self, data):
         if self.head is None:
             return
@@ -78,4 +76,22 @@ class LinkedList:
                 current.next = current.next.next
                 return
             current = current.next
+
+
+if __name__ == '__main__':
+    llist = LinkedList()
+    llist.append("a")
+    llist.append("b")
+    llist.append("c")
+    llist.append("d")
+    llist.append("f")
+    print(llist)
+    llist.delete_with_value("c")
+    print(llist)
+    llist.add_after("b", "c")
+    print(llist)
+    llist.delete_with_value("d")
+    print(llist)
+    llist.add_before("f", "d")
+    print(llist)
 
