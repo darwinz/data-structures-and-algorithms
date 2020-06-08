@@ -5,19 +5,35 @@ class TrieNode:
 
 
 class Trie:
+    """
+    Trie is a tree-like data structure (not binary), great for storing and searching for words
+    Each node has a hash set (or dictionary) of possible children, each of which is a single letter (e.g. 'a')
+
+    Ex.
+                * (children = {'a': <TrieNode>, 'b': <TrieNode>}
+              /        \
+            a (ch: 'n') b
+          /
+        n  (end_of_word = True, children = {})
+    """
     def __init__(self):
         self.root = TrieNode()
         self.recursive = True
 
     def __repr__(self):
-        return f'<{Trie.list_children(self.root)}>'
+        return f'<{Trie._list_children(self.root)}>'
 
     @staticmethod
-    def list_children(current, output=''):
+    def _list_children(current, output='', level=1):
+        if current.end_of_word:
+            output += '|'
         if current.children:
             for node, child in current.children.items():
-                output += node + '|'
-                output = Trie.list_children(child, output)
+                if level == 1:
+                    output += '*'
+                output += node
+                output = Trie._list_children(child, output, 2)
+            level += 1
         return output
 
     def add(self, word):
@@ -126,11 +142,13 @@ if __name__ == "__main__":
     trie.add("doh")
     trie.add("daddy")
     trie.add("doll")
+    trie.add("abcd")
+    trie.add("acdc")
     print(trie)
     trie.search("dad")
     trie.search("doll")
     trie.search("abc")
+    trie.search("zebra")
     trie.prefix_search("oh")
     trie.prefix_search("do")
     trie.prefix_search("dad")
-

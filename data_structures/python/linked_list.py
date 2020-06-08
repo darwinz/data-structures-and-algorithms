@@ -1,5 +1,8 @@
+from typing import Any
+
+
 class Node:
-    def __init__(self, data):
+    def __init__(self, data: Any):
         self.data = data
         self.next = None
 
@@ -26,7 +29,7 @@ class LinkedList:
             yield node
             node = node.next
 
-    def append(self, data):
+    def append(self, data: Any) -> None:
         if self.head is None:
             self.head = Node(data)
             return
@@ -35,12 +38,12 @@ class LinkedList:
             current = current.next
         current.next = Node(data)
 
-    def prepend(self, data):
+    def prepend(self, data: Any) -> None:
         new_head = Node(data)
         new_head.next = self.head
         self.head = new_head
 
-    def add_after(self, target_data, new_data):
+    def add_after(self, target_data: Any, new_data: Any) -> None:
         if not self.head:
             raise Exception("List is empty")
         current = self.head
@@ -52,7 +55,7 @@ class LinkedList:
                 return
             current = current.next
 
-    def add_before(self, target_data, new_data):
+    def add_before(self, target_data: Any, new_data: Any) -> None:
         if not self.head:
             raise Exception("List is empty")
         current = self.head
@@ -64,7 +67,7 @@ class LinkedList:
                 return
             current = current.next
 
-    def delete_with_value(self, data):
+    def delete_with_value(self, data: Any) -> None:
         if self.head is None:
             return
         if self.head.data == data:
