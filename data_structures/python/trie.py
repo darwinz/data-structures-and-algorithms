@@ -36,13 +36,13 @@ class Trie:
             level += 1
         return output
 
-    def add(self, word):
+    def add(self, word: str) -> None:
         if self.recursive:
             self.add_recursive(self.root, word, 0)
         else:
             self.add_iterative(word)
 
-    def add_recursive(self, current, word, index):
+    def add_recursive(self, current: TrieNode, word: str, index: int) -> None:
         """
         Recursive implementation of insert
         """
@@ -56,7 +56,7 @@ class Trie:
             current.children[letter] = node
         self.add_recursive(node, word, index + 1)
 
-    def add_iterative(self, word):
+    def add_iterative(self, word: str) -> None:
         """
         Iterative implementation of insert
         """
@@ -69,13 +69,13 @@ class Trie:
             current = node
         current.end_of_word = True
 
-    def search(self, word):
+    def search(self, word: str) -> bool:
         if self.recursive:
             return self.search_recursive(self.root, word, 0)
         else:
             return self.search_iterative(word)
 
-    def search_iterative(self, word):
+    def search_iterative(self, word: str) -> bool:
         """
         Iterative implementation of search
         """
@@ -87,7 +87,7 @@ class Trie:
             current = node
         return current.end_of_word
 
-    def search_recursive(self, current, word, index):
+    def search_recursive(self, current: TrieNode, word: str, index: int) -> bool:
         """
         Recursive implementation of search
         """
@@ -99,7 +99,7 @@ class Trie:
             return False
         return self.search_recursive(node, word, index + 1)
 
-    def prefix_search(self, prefix):
+    def prefix_search(self, prefix: str) -> bool:
         """
         Search for a prefix match
         :param prefix: str - prefix part of a string
@@ -113,10 +113,10 @@ class Trie:
             current = node
         return True
 
-    def delete(self, word):
+    def delete(self, word: str) -> bool:
         return self.delete_recursive(self.root, word, 0)
 
-    def delete_recursive(self, current, word, index):
+    def delete_recursive(self, current: TrieNode, word: str, index: int) -> bool:
         """
         Recursive implementation of delete
         """
@@ -129,7 +129,7 @@ class Trie:
         node = current.children.get(letter)
         if node is None:
             return False
-        should_delete_current_node = self.delete(node, word, index + 1)
+        should_delete_current_node = self.delete_recursive(node, word, index + 1)
         if should_delete_current_node:
             del current.children[letter]
             return len(current.children) == 0
