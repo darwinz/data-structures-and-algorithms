@@ -81,7 +81,7 @@ class LinkedList:
             current = current.next
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     llist = LinkedList()
     llist.append("a")
     llist.append("b")
@@ -97,4 +97,3 @@ if __name__ == '__main__':
     print(llist)
     llist.add_before("f", "d")
     print(llist)
-

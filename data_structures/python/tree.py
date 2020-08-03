@@ -30,27 +30,26 @@ class Node:
             else:
                 return self.right.contains(value)
 
-    def in_order(self, output='|'):
+    def in_order(self, output="|"):
         if self.left is not None:
             output = self.left.in_order(output)
-        output = f'{output}{self.data}|'
+        output = f"{output}{self.data}|"
         if self.right is not None:
             output = self.right.in_order(output)
         return output
 
-    def pre_order(self, output='|'):
-        output = f'{output}{self.data}|'
+    def pre_order(self, output="|"):
+        output = f"{output}{self.data}|"
         if self.left is not None:
             output = self.left.pre_order(output)
         if self.right is not None:
             output = self.right.pre_order(output)
         return output
 
-    def post_order(self, output='|'):
+    def post_order(self, output="|"):
         if self.left is not None:
             output = self.left.post_order(output)
         if self.right is not None:
             output = self.right.post_order(output)
-        output = f'{output}{self.data}|'
+        output = f"{output}{self.data}|"
         return output
-
