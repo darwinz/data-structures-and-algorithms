@@ -1,6 +1,6 @@
 # Data Structures and Algorithms
 
-![Actions Status](https://github.com/darwinz/data-structures-and-algorithms/workflows/GitHub Actions/badge.svg)
+![Actions Status](https://github.com/darwinz/data-structures-and-algorithms/workflows/GitHub%20Actions/badge.svg)
 
 
 This repo is a compilation of some data structures
