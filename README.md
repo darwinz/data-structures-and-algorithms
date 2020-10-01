@@ -3,8 +3,8 @@
 ![Actions Status](https://github.com/darwinz/data-structures-and-algorithms/workflows/GitHub%20Actions/badge.svg)
 
 
-This repo is a compilation of some data structures
-and algorithms in various programming languages
+This repository is a compilation of some data structures
+and algorithms in various programming languages.
 
 
 ## Data Structures
