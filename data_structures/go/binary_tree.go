@@ -1,11 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"io"
-	"os"
-)
-
 type BinaryNode struct {
 	left  *BinaryNode
 	right *BinaryNode
@@ -53,34 +47,4 @@ func (n *BinaryNode) insert(data int64) {
 			n.right.insert(data)
 		}
 	}
-}
-
-func print(w io.Writer, node *BinaryNode, ns int, ch rune) {
-	if node == nil {
-		return
-	}
-
-	for i := 0; i < ns; i++ {
-		fmt.Fprint(w, " ")
-	}
-	fmt.Fprintf(w, "%c:%v\n", ch, node.data)
-	fmt.Println(w, node.left, ns+2, 'L')
-	fmt.Println(w, node.right, ns+2, 'R')
-}
-
-func main() {
-	tree := &BinaryTree{}
-	tree.insert(100).
-		insert(-20).
-		insert(-50).
-		insert(-15).
-		insert(-60).
-		insert(50).
-		insert(60).
-		insert(55).
-		insert(85).
-		insert(15).
-		insert(5).
-		insert(-10)
-	fmt.Println(os.Stdout, tree.root, 0, 'M')
 }
