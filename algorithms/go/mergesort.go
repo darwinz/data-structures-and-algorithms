@@ -7,5 +7,5 @@ func mergesort(arr []int) []int {
 	mid := len(arr) / 2
 	left := mergesort(arr[:mid])
 	right := mergesort(arr[mid:])
-	return merge(left, right)
+	return mergesort(left, right)
 }
