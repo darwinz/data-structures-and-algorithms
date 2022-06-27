@@ -11,6 +11,9 @@ class TestMemoization(TestCase):
         self.assertEqual(3, memo[4])
 
     def test_fibonacci_uses_cached_values(self):
-        """Test fibonacci uses an incorrect value for fibonacci(3) from memoized cache"""
+        """
+        Test fibonacci uses an incorrect value for fibonacci(3)
+        from memoized cache
+        """
         memo[3] = 6
         self.assertEqual(6, fibonacci(3))

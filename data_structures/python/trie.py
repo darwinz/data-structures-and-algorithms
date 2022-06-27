@@ -6,8 +6,10 @@ class TrieNode:
 
 class Trie:
     """
-    Trie is a tree-like data structure (not binary), great for storing and searching for words
-    Each node has a hash set (or dictionary) of possible children, each of which is a single letter (e.g. 'a')
+    Trie is a tree-like data structure (not binary), great for
+    storing and searching for words. Each node has a hash set
+    (or dictionary) of possible children, each of which is a
+    single letter (e.g. 'a')
 
     Ex.
                 * (children = {'a': <TrieNode>, 'b': <TrieNode>}
@@ -87,7 +89,8 @@ class Trie:
             current = node
         return current.end_of_word
 
-    def search_recursive(self, current: TrieNode, word: str, index: int) -> bool:
+    def search_recursive(self, current: TrieNode, word: str,
+                         index: int) -> bool:
         """
         Recursive implementation of search
         """
@@ -116,7 +119,8 @@ class Trie:
     def delete(self, word: str) -> bool:
         return self.delete_recursive(self.root, word, 0)
 
-    def delete_recursive(self, current: TrieNode, word: str, index: int) -> bool:
+    def delete_recursive(self, current: TrieNode, word: str,
+                         index: int) -> bool:
         """
         Recursive implementation of delete
         """
@@ -129,7 +133,8 @@ class Trie:
         node = current.children.get(letter)
         if node is None:
             return False
-        should_delete_current_node = self.delete_recursive(node, word, index + 1)
+        should_delete_current_node = \
+            self.delete_recursive(node, word, index + 1)
         if should_delete_current_node:
             del current.children[letter]
             return len(current.children) == 0
