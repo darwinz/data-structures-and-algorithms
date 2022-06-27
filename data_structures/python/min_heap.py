@@ -1,11 +1,13 @@
 class MinHeap:
     """
-    MinHeap is a binary tree-like data structure, but uses a list/array to store the values
-    In a `MIN` heap, values are always lower than their children.  The inverse is true for 'MAX' heap
-    A heap should always be a full/complete binary tree, never open spots in-between values
-    For INSERTION, the new item is added in the last available spot and heapified UP
-    For DELETION, the root is removed, the last item replaces the root and is heapified DOWN
-    Sorting is similar to insertion sort, average runtime is O(n log(n))
+    MinHeap is a binary tree-like data structure, but uses a list/array to
+    store the values In a `MIN` heap, values are always lower than their
+    children.  The inverse is true for 'MAX' heap. A heap should always
+    be a full/complete binary tree, never open spots in-between values
+    For INSERTION, the new item is added in the last available spot and
+    heapified UP For DELETION, the root is removed, the last item replaces
+    the root and is heapified DOWN Sorting is similar to insertion sort,
+    average runtime is O(n log(n))
 
     Ex.  [10, 15, 18, 16, 17]
 
@@ -48,8 +50,8 @@ class MinHeap:
 
     def add(self, item: int) -> None:
         """
-        Add or insert a new item in the heap at the next available position in the tree
-        :param item: int - the item to be added / inserted
+        Add or insert a new item in the heap at the next available position
+        in the tree :param item: int - the item to be added / inserted
         """
         if self.size >= self.capacity:
             # Increase capacity of the items list
@@ -60,18 +62,26 @@ class MinHeap:
         self.heapify_up()
 
     def heapify_up(self) -> None:
-        """Arrange the items list into a proper heap, moving from bottom to top (e.g. after insertion)"""
+        """
+        Arrange the items list into a proper heap, moving from bottom to
+        top (e.g. after insertion)
+        """
         index = self.size - 1
-        while self.has_parent(index) and self.parent(index) > self.items[index]:
+        while self.has_parent(index) and \
+                self.parent(index) > self.items[index]:
             self.swap(self.parent_index(index), index)
             index = self.parent_index(index)
 
     def heapify_down(self) -> None:
-        """Arrange the items list into a proper heap, moving from top to bottom (e.g. after deletion)"""
+        """
+        Arrange the items list into a proper heap, moving from top to
+        bottom (e.g. after deletion)
+        """
         index = 0
         while self.has_left_child(index):
             smaller_child_index = self.left_child_index(index)
-            if self.has_right_child(index) and self.right_child(index) < self.left_child(index):
+            if self.has_right_child(index) \
+                    and self.right_child(index) < self.left_child(index):
                 smaller_child_index = self.right_child_index(index)
             if self.items[index] < self.items[smaller_child_index]:
                 break
@@ -124,7 +134,8 @@ class MinHeap:
 
     def has_left_child(self, index: int) -> bool:
         """
-        Check if a heap item has a left child, given the index of the heap item
+        Check if a heap item has a left child, given the
+        index of the heap item
         :param index: int - the index to be checked
         :return: bool - whether a left child exists
         """
@@ -132,7 +143,8 @@ class MinHeap:
 
     def has_right_child(self, index: int) -> bool:
         """
-        Check if a heap item has a right child, given the index of the heap item
+        Check if a heap item has a right child, given the
+        index of the heap item
         :param index: int - the index to be checked
         :return: bool - whether a right child exists
         """
@@ -140,7 +152,8 @@ class MinHeap:
 
     def has_parent(self, index: int) -> bool:
         """
-        Check if a heap item has a parent, given the index of the heap item
+        Check if a heap item has a parent, given the
+        index of the heap item
         :param index: int - the index to be checked
         :return: bool - whether a parent exists
         """
