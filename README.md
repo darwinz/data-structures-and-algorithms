@@ -11,10 +11,31 @@ and algorithms in various programming languages.
 
 ### Python
 
+* Array List
+* Binary Search Tree
+* Hash Table
 * Linked List
 * Min Heap
-* Tree
+* Resizable Array
+* Stack
 * Trie
+
+### Go
+
+* Binary Tree
+* Circular Queue
+* Heap
+* Linked List
+* Queue
+* Stack
+
+### Java
+
+* Circular Queue
+* Heap
+* Linked List
+* Queue
+* Stack
 
 
 ## Algorithms
@@ -25,6 +46,27 @@ and algorithms in various programming languages.
 * Count the paths matrix
 * Longest common subsequence
 * Memoization
+* Merge Sort
+* Quick Sort
+* Selection Sort
+* Vectors
+
+### Go
+
+* Binary Search
+* Bubble Sort
+* Counting Sort
+* Euclids
+* Insertion Sort
+* Merge Sort
+* Quick Sort
+* Selection Sort
+
+### Java
+
+* Binary Search
+* Bubble Sort
+* Insertion Sort
 * Merge Sort
 * Quick Sort
 * Selection Sort
